@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "name": "Profiles Tracker",
+    "action": {
+        "default_popup": "main.html",
+        "default_icon": "static/images/icon.png"
+    },
+    "permissions": [
+        "tabs"
+    ]
+}
+
+
+
