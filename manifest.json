@@ -1,10 +1,10 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "Profiles Tracker",
+    "name": "TabMark",
     "action": {
         "default_popup": "main.html",
-        "default_icon": "static/images/icon.png"
+        "default_icon": "icon.png"
     },
     "permissions": [
         "tabs"
