@@ -8,11 +8,15 @@ const deleteBtn = document.getElementById("delete-btn")
 const tabBtn = document.getElementById("tab-btn")
 
 
-const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLinks"))
+const linksFromLocalStorage = JSON.parse(localStorage.getItem("myLinks"))
 
-if (leadsFromLocalStorage) {
-    myLinks = leadsFromLocalStorage
-    renderLeads(myLinks)
+if (linksFromLocalStorage) {
+    if (typeof linksFromLocalStorage == "string") {
+        myLinks = [linksFromLocalStorage]
+    } else {
+        myLinks = linksFromLocalStorage
+    }
+    renderLinks(myLinks)
 }
 
 // Execute the function on click
@@ -23,11 +27,11 @@ saveBtn.addEventListener("click", function saveLink() {
     // Clearing the text of input box
     inputEl.value = ""
 
-    // Save the myLeads array to localStorage
+    // Save the myLinks array to localStorage
     localStorage.setItem("myLinks", JSON.stringify(myLinks))
 
     // Rendering the links on the webpage
-    renderLeads(myLinks)
+    renderLinks(myLinks)
 })
 
 function renderLinks(links) {
@@ -42,8 +46,7 @@ function renderLinks(links) {
                     <a target = '_blank' href='${links[i]}'>
                         ${links[i]}
                     </a>
-                </li>`
-        
+                </li>` 
     }
     ulEl.innerHTML = listItems
 }
@@ -51,7 +54,7 @@ function renderLinks(links) {
 deleteBtn.addEventListener("click", function() {
     localStorage.clear()
     myLinks = []
-    renderLeads(myLinks)
+    renderLinks(myLinks)
 })
 
 tabBtn.addEventListener("click", function() {
@@ -63,12 +66,12 @@ tabBtn.addEventListener("click", function() {
         //     { url: "https://github.com/RhugwedaShedge" }
         // ]
 
-        myLinks.push(tab[0].url)
+        myLinks.push(tabs[0].url)
 
-        // Save the myLeads array to localStorage
-        localStorage.setItem("myLinks", JSON.stringify(tab[0].url))
+        // Save the myLinks array to localStorage
+        localStorage.setItem("myLinks", JSON.stringify(myLinks))
 
-        renderLeads(myLinks)
+        renderLinks(myLinks)
 
     })
 
