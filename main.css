@@ -7,7 +7,7 @@ body {
 
 button {
     margin-bottom: 4px;
-    padding: 10px 20px; /* 10 - top/bottom/yaxis, 20 - left/right/xaxis */
+    padding: 10px 20px; 
     background-color: rgb(175, 255, 47);
     color: black;
     font-weight: bold;
@@ -26,9 +26,7 @@ button {
 
 input {
     width: 100%; 
-    padding: 10px; 
-    /* Input box will go out of the body since 1st width is 100% and then padding is added to the right and left 
-    100% + 10px + 10px */
+    padding: 10px;    
     box-sizing: border-box; /* 100% considers padding as well */
     border: 1px solid black;
     margin-bottom: 5px;
