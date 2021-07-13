@@ -8,7 +8,7 @@ body {
 button {
     margin-bottom: 4px;
     padding: 10px 20px; 
-    background-color: rgb(175, 255, 47);
+    background-color: rgb(255, 252, 47);
     color: black;
     font-weight: bold;
     border: 1px solid green;
@@ -21,7 +21,7 @@ button {
 
 #delete-btn:hover {
     background: black;
-    color: rgb(175, 255, 47);
+    color: rgb(255, 252, 47);
 }
 
 input {
@@ -49,5 +49,21 @@ li {
 
 a {
     color: green;
+    text-decoration: none;
+    font-size: 14px;
 }
+
+.del-btn {
+    display: inline;
+    background: white;
+    border: none;
+    color: black;
+    padding: 2px;
+    margin-left: 6px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 
