@@ -1,4 +1,5 @@
 
+
 let myLinks = []
 
 const inputEl = document.getElementById("input-el")
@@ -6,7 +7,7 @@ const saveBtn = document.getElementById("save-btn")
 const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const tabBtn = document.getElementById("tab-btn")
-
+let delBtn = document.getElementsByClassName("del-btn")
 
 const linksFromLocalStorage = JSON.parse(localStorage.getItem("myLinks"))
 
@@ -39,14 +40,16 @@ function renderLinks(links) {
     let listItems = ""
 
     for (let i = 0; i < links.length; i++) {
-
-    // Template String/Literals
+    
+        // Template String/Literals
         listItems += `
                 <li>
                     <a target = '_blank' href='${links[i]}'>
                         ${links[i]}
-                    </a>
-                </li>` 
+                    </a> 
+                    <button class="del-btn ${i}">X</button>
+                </li> ` 
+        
     }
     ulEl.innerHTML = listItems
 }
@@ -76,5 +79,33 @@ tabBtn.addEventListener("click", function() {
     })
 
 })
+
+for (i = 0; i < delBtn.length; i++) {
+
+    delBtn[i].addEventListener("click", function () {
+    
+        let index = this.classList[1]
+        
+        // Deleting the element from myLinks
+        myLinks.splice(index, 1)
+        
+        localStorage.setItem("myLinks", JSON.stringify(myLinks))
+
+        // Rendering the links on the webpage
+        renderLinks(myLinks)
+    })
+}
+
+
+
+
+
+
+
+
+    
+
+
+
 
 
