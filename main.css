@@ -53,7 +53,7 @@ a {
     font-size: 14px;
 }
 
-.del-btn {
+.del-btn, .copy-btn {
     display: inline;
     background: white;
     border: none;
@@ -65,5 +65,10 @@ a {
 button:hover {
     cursor: pointer;
 }
+
+img {
+    height: 15px;
+}
+
 
 
