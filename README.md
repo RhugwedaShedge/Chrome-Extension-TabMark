@@ -1,6 +1,6 @@
 ![icon3](https://user-images.githubusercontent.com/68070580/125436748-3c456f6c-fba5-4b17-9e82-ab4382c4de98.png)
 
-# Chrome-Extension-TabMark
+# Chrome-Extension-TabPull
 
 
 A chrome extension that helps saving chrome tabs for later use. 
