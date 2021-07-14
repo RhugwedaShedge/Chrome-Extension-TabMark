@@ -1,5 +1,4 @@
 
-
 let myLinks = []
 
 const inputEl = document.getElementById("input-el")
@@ -8,6 +7,7 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const tabBtn = document.getElementById("tab-btn")
 let delBtn = document.getElementsByClassName("del-btn")
+let copyBtn = document.getElementsByClassName("copy-btn")
 
 const linksFromLocalStorage = JSON.parse(localStorage.getItem("myLinks"))
 
@@ -44,10 +44,11 @@ function renderLinks(links) {
         // Template String/Literals
         listItems += `
                 <li>
-                    <a target = '_blank' href='${links[i]}'>
+                    <a target = '_blank' href='${links[i]}' id="a-tag">
                         ${links[i]}
                     </a> 
                     <button class="del-btn ${i}">X</button>
+                    <button class="copy-btn ${i}"><img src="copy.png" alt=""></button>
                 </li> ` 
         
     }
@@ -64,10 +65,6 @@ tabBtn.addEventListener("click", function() {
     
     // Grap the url of the current tab -- chrome.tabs    
     chrome.tabs.query({ active: true, currentWindow: true}, function(tabs) {
-        // tabs is of the form : 
-        // const tab = [
-        //     { url: "https://github.com/RhugwedaShedge" }
-        // ]
 
         myLinks.push(tabs[0].url)
 
@@ -80,12 +77,14 @@ tabBtn.addEventListener("click", function() {
 
 })
 
+let index
+
 for (i = 0; i < delBtn.length; i++) {
 
     delBtn[i].addEventListener("click", function () {
     
-        let index = this.classList[1]
-        
+        index = this.classList[1]
+
         // Deleting the element from myLinks
         myLinks.splice(index, 1)
         
@@ -94,17 +93,24 @@ for (i = 0; i < delBtn.length; i++) {
         // Rendering the links on the webpage
         renderLinks(myLinks)
     })
+
+    copyBtn[i].addEventListener("click", function () {
+
+        index = this.classList[1]
+
+        let copyText = myLinks[index];
+
+        var textArea = document.createElement("textarea");
+        
+        document.body.appendChild(textArea);
+        // setAttribute('value', value) works with "input" does not work with "textarea".
+        textArea.value = copyText;
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        
+    })
 }
-
-
-
-
-
-
-
-
-    
-
 
 
 
