@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "version": "1.0",
-    "name": "TabMark",
+    "name": "TabPull",
     "action": {
         "default_popup": "main.html",
         "default_icon": "icon.png"
