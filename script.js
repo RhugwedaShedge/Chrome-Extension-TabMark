@@ -108,6 +108,8 @@ for (i = 0; i < delBtn.length; i++) {
         textArea.select();
         document.execCommand("copy");
         document.body.removeChild(textArea);
+
+        copyBtn[index].innerHTML = `<img src="tick.jpg" alt="">`
         
     })
 }
